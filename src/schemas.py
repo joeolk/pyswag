@@ -36,5 +36,11 @@ success_resp = {
 
 earth_event_params = {
     "status": {"in": "query", "description": "'all', 'open', or 'closed'", "required": False},
-    "days": {"in": "query", "description": "The number of days back to search for events.", "required": False}
+    "days": {"in": "query", "description": "The number of days back to search for events.", "required": False},
+    "category": {
+        "in": "query",
+        "description": "The type of earth event. Categories: drought, wildfires, waterColor, volcanoes,\
+            temperatureExtremes, snow, severeStorms, seaAndLakeIce, manmade, landslides, floods, earthquakes, dustAndHaze",
+        "required": False
+    }
 }
