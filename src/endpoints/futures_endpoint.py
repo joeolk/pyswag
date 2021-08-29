@@ -1,9 +1,9 @@
 from flask import request
 from flask_restplus import Namespace, Resource, fields, reqparse
-from src.schemas import payload_validation_failure, internal_server_error, success_resp, earth_event_params
-from src.code.magic_seaweed_wrapper import magic_seaweed
+from src.schemas import payload_validation_failure, internal_server_error, success_resp, futures_params
+from src.code.futures import futures
 
-api = Namespace("Magic Seaweed", description="Magic Seaweed Surf Determiner")
+api = Namespace("Futures", description="Futures Related Queries")
 
 payload_val_failed = api.schema_model(
     "payload_val_failed", payload_validation_failure)
@@ -11,8 +11,8 @@ int_server_error = api.schema_model(
     "internal_server_error", internal_server_error)
 
 
-@api.route("do_i_surf")
-@api.doc(params=earth_event_params)
+@api.route("high_low")
+@api.doc(params=futures_params)
 class ClassRedditEndpoint(Resource):
     """   """
     @classmethod
@@ -22,9 +22,10 @@ class ClassRedditEndpoint(Resource):
     def get(cls):
         """  """
         parser = reqparse.RequestParser()
-        parser.add_argument("status", type=str, required=False)
-        parser.add_argument("days", type=int, required=False)
+        parser.add_argument("ticker_symbol", type=str, required=True)
+        parser.add_argument("start_date", type=str, required=False)
+        parser.add_argument("end_date", type=str, required=False)
         args = parser.parse_args()
 
-        resp = magic_seaweed.do_i_surf_today(args)
+        resp = futures.get_high_low(args)
         return resp

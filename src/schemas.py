@@ -44,3 +44,9 @@ earth_event_params = {
         "required": False
     }
 }
+
+futures_params = {
+    "ticker_symbol": {"in": "query", "description": "The ticker of the financial instrument to retrieve data from. (Example: AAPL)", "required": False},
+    "start_date": {"in": "query", "description": "The date to start the historical query from. (format: YYYY-MM-DD) (Default: 2 days ago)", "required": False},
+    "end_date": {"in": "query", "description": "The date to end the historical query from. (format: YYYY-MM-DD) (Default: today)", "required": False}
+}

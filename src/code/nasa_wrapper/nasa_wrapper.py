@@ -19,10 +19,11 @@ def get_earth_events(params=None):
         - dictionary of events with related information for each event.
 
     """
-
-    status = params.get('status').lower()
+    if params.get('status'):
+        status = params.get('status').lower()
+    if params.get('category'):
+        category = params.get('category').lower()
     days = params.get('days')
-    category = params.get('category').lower()
 
     url = "https://eonet.sci.gsfc.nasa.gov/api/v3/events"
     full_url = url + \
