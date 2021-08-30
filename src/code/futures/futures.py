@@ -8,7 +8,7 @@ def get_high_low(args):
 
     """
 
-    end_date = datetime.now().date()
+    end_date = datetime.now().date() - timedelta(1)
     start_date = end_date - timedelta(2)
 
     if args.start_date:
