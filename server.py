@@ -1,6 +1,6 @@
 # SERVER / SWAGGER SETTINGS
 from flask import Flask
-from flask_restplus import Api
+from flask_restx import Api
 from src.endpoints.nasa_endpoint import api as test_ns
 from src.endpoints.futures_endpoint import api as fe
 from src.endpoints.get_resume import api as resume

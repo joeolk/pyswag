@@ -1,5 +1,5 @@
 from flask import request
-from flask_restplus import Namespace, Resource, fields, reqparse
+from flask_restx import Namespace, Resource, fields, reqparse
 from src.schemas import payload_validation_failure, internal_server_error, success_resp, futures_params
 from src.code.futures import futures
 

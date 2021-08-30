@@ -1,5 +1,5 @@
 from flask import request
-from flask_restplus import Namespace, Resource, fields, reqparse
+from flask_restx import Namespace, Resource, fields, reqparse
 from src.schemas import payload_validation_failure, internal_server_error, success_resp, earth_event_params
 from src.code.nasa_wrapper import nasa_wrapper
 
